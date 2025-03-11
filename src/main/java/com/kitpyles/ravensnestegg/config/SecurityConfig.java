@@ -40,6 +40,8 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/h2-console/**").permitAll()
                 .requestMatchers("/api/auth/**").permitAll()
+                .requestMatchers("/").permitAll()
+                .requestMatchers("/dashboard").authenticated()
                 .requestMatchers("/api/public/**").permitAll()
                 .anyRequest().authenticated()
             )
